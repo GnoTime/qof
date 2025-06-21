@@ -566,6 +566,58 @@ sql_condition_stringify (sql_condition * cond)
 }
 
 static char *
+sql_logic_op_stringify (sql_logic_operator op)
+{
+	switch (op) {
+	case SQL_and:
+		return memsql_strdup ("and");
+	case SQL_or:
+		return memsql_strdup ("or");
+	default:
+		fprintf (stderr, "invalid logic op: %d", op);
+	}
+	return NULL;
+}
+
+static char *
+sql_where_stringify (sql_where * where)
+{
+	char *retval = NULL;
+
+	if (!where)
+		return NULL;
+
+	switch (where->type) {
+	case SQL_single:
+		retval = sql_condition_stringify (where->d.single);
+		break;
+
+	case SQL_negated:
+		retval =
+			memsql_strappend_free (memsql_strdup ("not "),
+					       sql_where_stringify (where->d.negated));
+		break;
+
+	case SQL_pair:
+		retval =
+			memsql_strappend_free (sql_where_stringify (where->d.pair.left),
+					       memsql_strdup (" "));
+		retval =
+			memsql_strappend_free (retval,
+					       sql_logic_op_stringify (where->d.pair.op));
+		retval = memsql_strappend_free (retval, memsql_strdup (" "));
+		retval =
+			memsql_strappend_free (retval,
+					       sql_where_stringify (where->d.pair.right));
+	}
+
+	retval = memsql_strappend_free (memsql_strdup ("("), retval);
+	retval = memsql_strappend_free (retval, memsql_strdup (")"));
+
+	return retval;
+}
+
+static char *
 sql_table_stringify (sql_table * table)
 {
 	char *retval;
@@ -614,60 +666,8 @@ sql_table_stringify (sql_table * table)
 	if (table->join_cond) {
 		retval = memsql_strappend_free (NULL, memsql_strdup (" on "));
 		retval = memsql_strappend_free (retval,
-						sql_condition_stringify (table->join_cond));
+						sql_where_stringify (table->join_cond));
 	}
-
-	return retval;
-}
-
-static char *
-sql_logic_op_stringify (sql_logic_operator op)
-{
-	switch (op) {
-	case SQL_and:
-		return memsql_strdup ("and");
-	case SQL_or:
-		return memsql_strdup ("or");
-	default:
-		fprintf (stderr, "invalid logic op: %d", op);
-	}
-	return NULL;
-}
-
-static char *
-sql_where_stringify (sql_where * where)
-{
-	char *retval = NULL;
-
-	if (!where)
-		return NULL;
-
-	switch (where->type) {
-	case SQL_single:
-		retval = sql_condition_stringify (where->d.single);
-		break;
-
-	case SQL_negated:
-		retval =
-			memsql_strappend_free (memsql_strdup ("not "),
-					       sql_where_stringify (where->d.negated));
-		break;
-
-	case SQL_pair:
-		retval =
-			memsql_strappend_free (sql_where_stringify (where->d.pair.left),
-					       memsql_strdup (" "));
-		retval =
-			memsql_strappend_free (retval,
-					       sql_logic_op_stringify (where->d.pair.op));
-		retval = memsql_strappend_free (retval, memsql_strdup (" "));
-		retval =
-			memsql_strappend_free (retval,
-					       sql_where_stringify (where->d.pair.right));
-	}
-
-	retval = memsql_strappend_free (memsql_strdup ("("), retval);
-	retval = memsql_strappend_free (retval, memsql_strdup (")"));
 
 	return retval;
 }
