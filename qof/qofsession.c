@@ -931,9 +931,6 @@ struct backend_providers backend_list[] = {
 #ifdef HAVE_GDA
 	{QOF_LIB_DIR, "libqof-backend-gda", "qof_gda_provider_init"},
 #endif
-#ifdef HAVE_ESTRON
-	{QOF_LIB_DIR, "libqof_backend_estron", "dwiend_provider_init"},
-#endif
 	{NULL, NULL, NULL}
 };
 
