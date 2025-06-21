@@ -11,12 +11,6 @@ endif
 XML=file
 endif
 
-#if USE_ESTRON
-#ESTRON=estron
-#else
-ESTRON=
-#endif
-
 if USE_GDABACKEND
 GDA=gda
 else
