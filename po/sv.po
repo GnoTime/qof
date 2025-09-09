@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qof 0.7.2\n"
 "Report-Msgid-Bugs-To: qof-devel@lists.alioth.debian.org\n"
-"POT-Creation-Date: 2019-04-28 23:01+0100\n"
+"POT-Creation-Date: 2025-09-09 09:25+0200\n"
 "PO-Revision-Date: 2006-09-28 17:54+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -198,9 +198,9 @@ msgid ""
 "values. The file cannot be processed - please check the source of the file "
 "and try again."
 msgstr ""
-"Den valda QSF-objektfilen \"%s\" innehåller en eller flera ogiltiga \"collect"
-"\"-värden. Filen kan inte behandlas - kontrollera källan för filen och "
-"försök igen."
+"Den valda QSF-objektfilen \"%s\" innehåller en eller flera ogiltiga "
+"\"collect\"-värden. Filen kan inte behandlas - kontrollera källan för filen "
+"och försök igen."
 
 #: backend/sqlite/qof-sqlite.c:834
 #, c-format
@@ -236,11 +236,11 @@ msgstr "Kunde inte infoga en ny post."
 msgid "Unable to update existing record."
 msgstr "Kunde inte uppdatera existerande post."
 
-#: qof/qofsession.c:1050
+#: qof/qofsession.c:1044
 msgid "This book appears to be open already."
 msgstr "Den här boken verkar redan vara öppnad."
 
-#: qof/qofsession.c:1091
+#: qof/qofsession.c:1085
 #, c-format
 msgid ""
 "Unable to locate a suitable backend for '%s' - please check you have "
@@ -249,11 +249,11 @@ msgstr ""
 "Kunde inte hitta en lämplig bakände för \"%s\" - kontrollera att du har "
 "angivit en åtkomstmetod som file: eller sqlite:"
 
-#: qof/qofsession.c:1328 qof/qofsession.c:1365
+#: qof/qofsession.c:1322 qof/qofsession.c:1359
 msgid "Failed to load backend, no suitable handler."
 msgstr "Misslyckades med att läsa in bakände, ingen lämplig hanterare."
 
-#: qof/qofsql.c:724 qof/qofsql.c:751
+#: qof/qofsql.c:720 qof/qofsql.c:747
 #, c-format
 msgid ""
 "When converting SQLite strings into numbers, an overflow has been detected. "
@@ -263,11 +263,3 @@ msgstr ""
 "Ett överflöde påträffades när SQLite-strängar konverterades till siffror. "
 "SQLite-databasen \"%s\" innehåller ogiltigt data i ett fält som är tänkt att "
 "innehålla ett siffror."
-
-#, fuzzy
-#~ msgid "GDA Provider '%s' could not be found"
-#~ msgstr "QSF XML-filen \"%s\" kunde inte hittas."
-
-#, fuzzy
-#~ msgid "GDA: Unable to locate your home directory."
-#~ msgstr "Kunde inte skapa post."

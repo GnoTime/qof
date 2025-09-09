@@ -250,7 +250,6 @@ qof_log_set_default (QofLogLevel log_level)
 	qof_log_set_level (QOF_MOD_ERROR, log_level);
 	qof_log_set_level (QOF_MOD_QSF, log_level);
 	qof_log_set_level (QOF_MOD_SQLITE, log_level);
-	qof_log_set_level (QOF_MOD_GDA, log_level);
 }
 
 struct hash_s

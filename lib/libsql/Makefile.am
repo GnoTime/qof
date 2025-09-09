@@ -42,7 +42,6 @@ lexer.c: lexer.l parser.c
 	$(LEX) -olexer.c -Psql lexer.l
 
 sql_parse_test_SOURCES=sql_parse_test.c
-# sql_parse_test_LDFLAGS = $(LIBGDA_LIBS)
 sql_parse_test_DEPENDENCIES = ./libqofsql.la
 sql_parse_test_LDADD = ./libqofsql.la ${GLIB_LIBS}
 

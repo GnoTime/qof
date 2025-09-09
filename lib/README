@@ -10,13 +10,3 @@ Contents:
 ---------
 The libsql directory contains code copied from the
 libgda (http://www.gnome-db.org/) Gnome database system.
-
-LibGDA support
---------------
-The libsql directory is not built if libgda >= 1.2.0 can be
-found on the build system. (August 2005). Note: libgda support
-is *limited* to the STABLE libgda releases. v1.3 and 1.9 are
-NOT detected by QOF and should not be used. Patches to support
-the unstable libgda code will be refused. If a stable libgda
-is not available on your platform, let QOF use the internal code
-in lib/libsql instead.

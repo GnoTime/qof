@@ -22,7 +22,7 @@
 
 /**
     @file qofsql.c
-    @brief QOF client-side SQL parser - interfaces with libgda.
+    @brief QOF client-side SQL parser
     @author Copyright (C) 2004 Linas Vepstas <linas@linas.org>
     @author Copyright 2008 Neil Williams <linux@codehelp.co.uk>
 
@@ -36,11 +36,7 @@
 #include <errno.h>
 #include <glib.h>
 #include <libintl.h>
-#ifdef HAVE_GDA
-#include <libsql/sql_parser.h>
-#else
 #include "sql_parser.h"
-#endif
 #include <time.h>
 #include "qof.h"
 #include "qofsql-p.h"

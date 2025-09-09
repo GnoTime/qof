@@ -1,4 +1,3 @@
 lib/libsql/parser.c
 lib/libsql/sql_parser.c
-backend/gda/qof-gda.c
 qof/deprecated.c
