@@ -17,6 +17,6 @@ else
 GDA=
 endif
 
-SUBDIRS = $(XML) $(SQLITE) $(GDA) $(ESTRON)
+SUBDIRS = $(XML) $(SQLITE) $(GDA)
 
-DIST_SUBDIRS = file sqlite gda $(ESTRON)
+DIST_SUBDIRS = file sqlite gda
