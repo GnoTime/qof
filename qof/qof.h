@@ -99,9 +99,6 @@
 /** allow easy loading of the QSF backend */
 #define QSF_MODULE_INIT "qsf_provider_init"
 
-/** allow easy logging of GDA backend messages */
-#define QOF_MOD_GDA  "qof-backend-gda"
-
 /** allow easy logging of SQLITE backend messages */
 #define QOF_MOD_SQLITE "qof-sqlite-module"
 

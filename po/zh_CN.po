@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qof 0.7.2\n"
 "Report-Msgid-Bugs-To: qof-devel@lists.alioth.debian.org\n"
-"POT-Creation-Date: 2019-04-28 23:01+0100\n"
+"POT-Creation-Date: 2025-09-09 09:25+0200\n"
 "PO-Revision-Date: 2008-05-29 14:03+0800\n"
 "Last-Translator: Ji ZhengYu <zhengyuji@gmail.com>\n"
-"Language-Team: Chinese (simplified) <translation-team-zh-cn@lists."
-"sourceforge.net>\n"
+"Language-Team: Chinese (simplified) <translation-team-zh-"
+"cn@lists.sourceforge.net>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -218,11 +218,11 @@ msgstr "无法插入一条新的记录。"
 msgid "Unable to update existing record."
 msgstr "无法更新存在的记录。"
 
-#: qof/qofsession.c:1050
+#: qof/qofsession.c:1044
 msgid "This book appears to be open already."
 msgstr "此工作薄好像以打开了。"
 
-#: qof/qofsession.c:1091
+#: qof/qofsession.c:1085
 #, c-format
 msgid ""
 "Unable to locate a suitable backend for '%s' - please check you have "
@@ -231,11 +231,11 @@ msgstr ""
 "无法为‘%s’找到一个合适的后端程序 - 请检查您确实已指定一种访问方式，如 file: "
 "或是 sqlite:"
 
-#: qof/qofsession.c:1328 qof/qofsession.c:1365
+#: qof/qofsession.c:1322 qof/qofsession.c:1359
 msgid "Failed to load backend, no suitable handler."
 msgstr "无法载入后端程序，没有合适的处理程序。"
 
-#: qof/qofsql.c:724 qof/qofsql.c:751
+#: qof/qofsql.c:720 qof/qofsql.c:747
 #, c-format
 msgid ""
 "When converting SQLite strings into numbers, an overflow has been detected. "
@@ -244,11 +244,3 @@ msgid ""
 msgstr ""
 "将 SQLite 字符串转换至数字时，探测到溢出。SQLite 数据库‘%s’保存数字的域中包含"
 "无效数据。"
-
-#, fuzzy
-#~ msgid "GDA Provider '%s' could not be found"
-#~ msgstr "QSF XML 文件‘%s’无法找到。"
-
-#, fuzzy
-#~ msgid "GDA: Unable to locate your home directory."
-#~ msgstr "无法创建记录。"

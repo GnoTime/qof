@@ -3,17 +3,8 @@ AM_CFLAGS = \
   -I${top_srcdir}/qof \
    ${warnFLAGS} \
    ${LIBXML2_CFLAGS} \
-   ${LIBGDA_CFLAGS} \
    ${GLIB_CFLAGS}
 
-if USE_LIBGDA
-LDADD = \
-   ${top_builddir}/qof/libqof.la \
-   ${GLIB_LIBS} \
-   ${GMODULE_LIBS} \
-   ${GOBJECT_LIBS} \
-   ${GDA_PKG_LIBS}
-else
 LDADD = \
  -L${top_builddir}/lib/libsql ${SQL_PKG_LIB} \
    ${top_builddir}/qof/libqof.la \
@@ -21,7 +12,6 @@ LDADD = \
    ${GMODULE_LIBS} \
    ${GOBJECT_LIBS} \
    ${SQL_PKG_LIB}
-endif
 
 #   ${LIBXML2_LIBS} 
 

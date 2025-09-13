@@ -27,9 +27,7 @@
 
 The QOF SQLite backend is now mostly functional. This
 backend is designed for use by embedded systems where libxml2
-is too large - other, larger, systems will be able to use a more 
-comprehensive libgda backend that can connect with a variety
-of databases using plugins.
+is too large.
 
 SQLite is typeless so the types defined for the various QOF
 parameter types act as more of a guide than a rule.

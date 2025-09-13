@@ -179,12 +179,11 @@ dnl # **************************************************************
 dnl # Embedded systems only use the QofSQLite backend.
 dnl # libxml2 and optional sqlite for host systems.
 dnl # libxml2 v2.5.10 is required for QSF (backend/file)
-dnl # libgdasql is omitted to prevent a need for libgda2-3 itself.
 dnl # **************************************************************
 
 AC_ARG_ENABLE(embedded,
 	[  --enable-embedded       Enable the SQLite backend for embedded systems
-                          and DISABLE libgdasql and the QSF XML backend. (no)],
+                          and DISABLE the QSF XML backend. (no)],
 	[case "${enableval}" in
 		no) embedded="no" ;;
 		yes) embedded="yes" ;;
@@ -228,72 +227,7 @@ fi
 
 AM_CONDITIONAL(USE_SQLITE, [test "$sqlite" = "yes"])
 
-dnl # **************************************************************
-dnl # GNOME Data Access library for GNOME2 libgda
-dnl # Enables use of gdasql within libqof1 *and* the gda backend.
-dnl # **************************************************************
-
-dnl # Not ready yet.
-usegdabackend="no"
-backend3="Disabled (default)"
-if test "$embedded" != "yes"; then
-	usegdasql="yes"
-else
-	usegdasql="no"
-	usegdabackend="no"
-fi
-AC_ARG_ENABLE(gdasql,
-  [  --disable-gdasql        Disable the use of libgdasql.],
-  [case "${enableval}" in
-		no) usegdasql="no" ;;
-		yes) usegdasql="yes" ;;
-		*) AC_MSG_ERROR(bad value ${enableval} for --disable-gda) ;;
-		esac])
-
-if test "$usegdasql" = "yes"; then
-	AC_MSG_CHECKING(for SQL parser support)
-	if test "$embedded" != "yes"; then
-		GDA_REQUIRED=3.0.1
-		LIBGDA_CFLAGS=`$PKG_CONFIG --cflags "libgda-3.0 >= $GDA_REQUIRED"`
-		LIBGDA_LIBS="-lgda-3.0"
-		# LIBGDA should only be used for the GDA backend
-		AC_SUBST(LIBGDA_CFLAGS)
-		AC_SUBST(LIBGDA_LIBS)
-	fi
-fi
-if test "x$LIBGDA_CFLAGS" = x; then
-	AC_MSG_RESULT([GDA not found (or disabled); will build using internal SQL library.])
-	SQL_PKG_LIB="-lqofsql"
-else
-	AC_ARG_ENABLE(gdabackend,
-	  [  --enable-gdabackend     Enable the use of the gda backend (off).],
-	  [case "${enableval}" in
-			no) usegdabackend="no" ;;
-			yes) usegdabackend="yes" ;;
-			*) AC_MSG_ERROR(bad value ${enableval} for --enable-gdabackend) ;;
-			esac])
-	GDA_VERSION=`$PKG_CONFIG --modversion libgda-3.0`
-	AC_SUBST(GDA_VERSION)
-	AC_MSG_RESULT([yes, using GDA: ${GDA_VERSION}])
-	save_LIBS="$LIBS"
-	AC_CHECK_LIB(gda-3.0, gda_client_open_connection, ,
-		[AC_MSG_ERROR([libgda3-3 found but missing gda_client_open_connection])])
-	AC_CHECK_LIB(gdasql-3.0, sql_parse, , [AC_MSG_ERROR([libgda3-3 found but missing libgdasql-3.0])])
-	AC_DEFINE(HAVE_GDA,,[We have found GDA])
-	GDA_PKG_LIB="-lgdasql-3.0"
-	LIBS="$save_LIBS"
-	HAVE_GDA="use_gda"
-	if test "$usegdabackend" = "yes"; then
-		backend3="Enabled"
-	fi
-fi
-
-AM_CONDITIONAL(USE_GDABACKEND, [ test x"$usegdabackend" != x"no"])
-
-AM_CONDITIONAL(USE_LIBGDA, [ test x"$HAVE_GDA" != x])
-AM_CONDITIONAL(USE_LIBGDA, [ test "$HAVE_GDA" = "use_gda"])
-AC_SUBST(USE_LIBGDA)
-AC_SUBST(GDA_PKG_LIB)
+SQL_PKG_LIB="-lqofsql"
 AC_SUBST(SQL_PKG_LIB)
 
 dnl # =========================
@@ -428,7 +362,6 @@ AC_CONFIG_FILES([ po/Makefile.in
 Makefile
 backend/Makefile
 backend/file/Makefile
-backend/gda/Makefile
 backend/sqlite/Makefile
 doc/Makefile
 doc/html/Makefile
@@ -456,9 +389,6 @@ echo "QOF_CFLAGS  :   "`eval echo $QOF_CFLAGS`
 echo "QOF_LIBS    :   $QOF_LIBS"
 echo "1st backend :   $backend"
 echo "2nd backend :   $backend2"
-echo "GDA backend :   $backend3"
-echo "libgda      :   $GDA_VERSION"
-echo "libgdasql   :   $GDA_PKG_LIB"
 echo "libqofsql   :   $SQL_PKG_LIB"
 echo "prefix      :   $prefix"
 echo "data dir    :   "`eval echo $DATADIR`

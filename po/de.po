@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: qof 0.8.0\n"
 "Report-Msgid-Bugs-To: qof-devel@lists.alioth.debian.org\n"
-"POT-Creation-Date: 2019-04-28 23:01+0100\n"
+"POT-Creation-Date: 2025-09-09 09:25+0200\n"
 "PO-Revision-Date: 2009-07-03 18:09+0100\n"
 "Last-Translator: Chris Leick <c.leick@vollbio.de>\n"
 "Language-Team: German <debian-l10n-german@lists.debian.org>\n"
@@ -245,11 +245,11 @@ msgstr "Es kann kein neuer Datensatz eingefügt werden."
 msgid "Unable to update existing record."
 msgstr "Bestehender Datensatz kann nicht aktualisiert werden."
 
-#: qof/qofsession.c:1050
+#: qof/qofsession.c:1044
 msgid "This book appears to be open already."
 msgstr "Dieses Buch scheint bereits geöffnet zu sein."
 
-#: qof/qofsession.c:1091
+#: qof/qofsession.c:1085
 #, c-format
 msgid ""
 "Unable to locate a suitable backend for '%s' - please check you have "
@@ -258,11 +258,11 @@ msgstr ""
 "Es konnte kein passendes Backend für »%s« gefunden werden - bitte prüfen "
 "Sie, ob Sie eine Zugriffsmethode wie file: oder sqlite: angegeben haben"
 
-#: qof/qofsession.c:1328 qof/qofsession.c:1365
+#: qof/qofsession.c:1322 qof/qofsession.c:1359
 msgid "Failed to load backend, no suitable handler."
 msgstr "Laden des Backends fehlgeschlagen, keine passender Handler"
 
-#: qof/qofsql.c:724 qof/qofsql.c:751
+#: qof/qofsql.c:720 qof/qofsql.c:747
 #, c-format
 msgid ""
 "When converting SQLite strings into numbers, an overflow has been detected. "

@@ -92,36 +92,18 @@ noinst_HEADERS = \
 AM_CFLAGS = -g \
   -DQOF_LIB_DIR=\"${QOF_LIB_DIR}\" \
   ${warnFLAGS} \
-  ${LIBGDA_CFLAGS} \
   ${GLIB_CFLAGS}
 
-if USE_LIBGDA
-AM_CPPFLAGS = \
-  -DPREFIX=\""$(prefix)"\"  \
-  -DDATADIR=\""$(datadir)"\"
-else
 AM_CPPFLAGS = \
   -I${top_srcdir}/lib/libsql  \
   -DPREFIX=\""$(prefix)"\" \
   -DDATADIR=\""$(datadir)"\"
-endif
 
-if USE_LIBGDA
 libqof_la_LIBADD = \
   ${GMODULE_LIBS} \
   ${GOBJECT_LIBS} \
   ${GLIB_LIBS} \
-  ${GDA_PKG_LIB} \
   -lm
-else
-libqof_la_LIBADD = \
- -L${top_builddir}/lib/libsql ${SQL_PKG_LIB} \
-  ${GMODULE_LIBS} \
-  ${GOBJECT_LIBS} \
-  ${GLIB_LIBS} \
-  ${GDA_PKG_LIB} \
-  -lm
-endif
 
 EXTRA_DIST = \
   libqof.ver \
