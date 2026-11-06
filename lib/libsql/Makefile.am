@@ -36,10 +36,10 @@ AM_CFLAGS = -g     \
 #	-I$(includedir) 
 
 parser.c: parser.y
-	$(YACC) -v -d -o parser.c -p sql parser.y
+	$(YACC) -v -d -o parser.c -p sql $(srcdir)/parser.y
 
 lexer.c: lexer.l parser.c
-	$(LEX) -olexer.c -Psql lexer.l
+	$(LEX) -olexer.c -Psql $(srcdir)/lexer.l
 
 sql_parse_test_SOURCES=sql_parse_test.c
 sql_parse_test_DEPENDENCIES = ./libqofsql.la
