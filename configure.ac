@@ -29,7 +29,7 @@ AC_SUBST(LIBQOFSQL_LIBRARY_VERSION)
 SONAME=QOFCURRENT
 AC_SUBST([SONAME])
 
-AC_PREFIX_PROGRAM([/usr])
+AC_PREFIX_DEFAULT([/usr])
 VERSION=AC_PACKAGE_VERSION
 AC_SUBST(VERSION)
 PACKAGE=AC_PACKAGE_NAME
@@ -41,12 +41,12 @@ AC_CONFIG_HEADERS([config.h])
 
 AC_ISC_POSIX
 AC_PROG_AWK
-AC_PROG_CXX
 AC_PROG_CC
 AC_PROG_CPP
 AC_HEADER_STDC
 AC_PROG_YACC
 AC_PROG_INSTALL
+AC_PROG_LEX([noyywrap])
 AC_PROG_LN_S
 AC_PROG_MAKE_SET
 AC_FUNC_MKTIME
@@ -56,19 +56,12 @@ dnl # *****************************************
 dnl # pkg-config check time
 dnl # *****************************************
 
-AM_PATH_GLIB_2_0("2.9.0", , ,gobject)
+GLIB_REQUIRED=2.10.0
 
-AC_PATH_PROG(PKG_CONFIG,pkg-config)
-if test "x$PKG_CONFIG" != x; then
-	GLIB_LIBS=`$PKG_CONFIG --libs glib-2.0`
-	GLIB_CFLAGS=`$PKG_CONFIG --cflags glib-2.0`
-	GOBJECT_LIBS=`$PKG_CONFIG --libs gobject-2.0`
-	GMODULE_LIBS=`$PKG_CONFIG --libs gmodule-2.0`
-fi
-AC_SUBST(GLIB_CFLAGS)
-AC_SUBST(GLIB_LIBS)
-AC_SUBST(GOBJECT_LIBS)
-AC_SUBST(GMODULE_LIBS)
+PKG_PROG_PKG_CONFIG
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= $GLIB_REQUIRED])
+PKG_CHECK_MODULES(GMODULE, [gmodule-2.0 >= $GLIB_REQUIRED])
+PKG_CHECK_MODULES(GOBJECT, [gobject-2.0 >= $GLIB_REQUIRED])
 
 dnl # ********************************
 dnl # Symbol versioning support
@@ -123,7 +116,6 @@ dnl # **************************************************************
 dnl # Checks for typedefs, structures, and compiler characteristics.
 dnl # **************************************************************
 
-AC_C_CONST
 AC_C_INLINE
 AC_TYPE_INT16_T
 AC_TYPE_INT32_T
@@ -258,6 +250,13 @@ else
         else
                 enable_doc=yes
                 AC_PATH_PROG(DOT, dot, , $PATH)
+                AC_PATH_PROG(XSLTPROC, xsltproc, , $PATH)
+                if test x$XSLTPROC = x; then
+                        if test "x$enable_doxygen" = xyes; then
+                                AC_MSG_ERROR([could not find xsltproc])
+                        fi
+                        enable_doc=no
+                fi
         fi
 fi
 AM_CONDITIONAL(DOC, test x$enable_doc = xyes)

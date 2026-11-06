@@ -26,7 +26,7 @@ xml/index.xml:
 	$(DOXYGEN) doxygen.cfg
 
 qof.devhelp2: xml/index.xml
-	xsltproc -o qof.devhelp2 $(top_srcdir)/doc/doxygen_to_devhelp.xsl xml/index.xml
+	$(XSLTPROC) -o qof.devhelp2 $(top_srcdir)/doc/doxygen_to_devhelp.xsl xml/index.xml
 
 qofdocdir = ${datadir}/doc/qof/html/
 qofdoc_DATA = html/* \

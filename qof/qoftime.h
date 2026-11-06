@@ -87,7 +87,6 @@
     @author Copyright 2006 Neil Williams <linux@codehelp.co.uk>
 */
 
-#include "config.h"
 #include <time.h>
 
 /** log module name */
