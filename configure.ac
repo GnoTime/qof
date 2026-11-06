@@ -56,19 +56,12 @@ dnl # *****************************************
 dnl # pkg-config check time
 dnl # *****************************************
 
-AM_PATH_GLIB_2_0("2.10.0", , ,gobject)
+GLIB_REQUIRED=2.10.0
 
 PKG_PROG_PKG_CONFIG
-if test "x$PKG_CONFIG" != x; then
-	GLIB_LIBS=`$PKG_CONFIG --libs glib-2.0`
-	GLIB_CFLAGS=`$PKG_CONFIG --cflags glib-2.0`
-	GOBJECT_LIBS=`$PKG_CONFIG --libs gobject-2.0`
-	GMODULE_LIBS=`$PKG_CONFIG --libs gmodule-2.0`
-fi
-AC_SUBST(GLIB_CFLAGS)
-AC_SUBST(GLIB_LIBS)
-AC_SUBST(GOBJECT_LIBS)
-AC_SUBST(GMODULE_LIBS)
+PKG_CHECK_MODULES(GLIB, [glib-2.0 >= $GLIB_REQUIRED])
+PKG_CHECK_MODULES(GMODULE, [gmodule-2.0 >= $GLIB_REQUIRED])
+PKG_CHECK_MODULES(GOBJECT, [gobject-2.0 >= $GLIB_REQUIRED])
 
 dnl # ********************************
 dnl # Symbol versioning support
