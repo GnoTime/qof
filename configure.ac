@@ -257,6 +257,13 @@ else
         else
                 enable_doc=yes
                 AC_PATH_PROG(DOT, dot, , $PATH)
+                AC_PATH_PROG(XSLTPROC, xsltproc, , $PATH)
+                if test x$XSLTPROC = x; then
+                        if test "x$enable_doxygen" = xyes; then
+                                AC_MSG_ERROR([could not find xsltproc])
+                        fi
+                        enable_doc=no
+                fi
         fi
 fi
 AM_CONDITIONAL(DOC, test x$enable_doc = xyes)
