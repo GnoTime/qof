@@ -124,7 +124,6 @@ dnl # **************************************************************
 dnl # Checks for typedefs, structures, and compiler characteristics.
 dnl # **************************************************************
 
-AC_C_CONST
 AC_C_INLINE
 AC_TYPE_INT16_T
 AC_TYPE_INT32_T
