@@ -58,7 +58,7 @@ dnl # *****************************************
 
 AM_PATH_GLIB_2_0("2.10.0", , ,gobject)
 
-AC_PATH_PROG(PKG_CONFIG,pkg-config)
+PKG_PROG_PKG_CONFIG
 if test "x$PKG_CONFIG" != x; then
 	GLIB_LIBS=`$PKG_CONFIG --libs glib-2.0`
 	GLIB_CFLAGS=`$PKG_CONFIG --cflags glib-2.0`
