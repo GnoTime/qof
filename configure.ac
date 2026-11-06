@@ -56,7 +56,7 @@ dnl # *****************************************
 dnl # pkg-config check time
 dnl # *****************************************
 
-AM_PATH_GLIB_2_0("2.9.0", , ,gobject)
+AM_PATH_GLIB_2_0("2.10.0", , ,gobject)
 
 AC_PATH_PROG(PKG_CONFIG,pkg-config)
 if test "x$PKG_CONFIG" != x; then
