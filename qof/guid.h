@@ -24,6 +24,8 @@
 #ifndef GUID_H
 #define GUID_H
 
+#include <glib.h>
+
 #include <stddef.h>
 
 /** @addtogroup Class

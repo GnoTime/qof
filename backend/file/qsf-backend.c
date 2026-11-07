@@ -31,6 +31,8 @@
 #include <libxml/xmlschemas.h>
 #include "qof.h"
 #include "qofobject-p.h"
+#include "qofbackend-p.h"
+#include "qofid-p.h"
 #include "qof-backend-qsf.h"
 #include "qsf-xml.h"
 #include "kvputil-p.h"

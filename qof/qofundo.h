@@ -83,6 +83,8 @@
 #ifndef _QOFUNDO_H
 #define _QOFUNDO_H
 
+#include "qofinstance.h"
+
 #define QOF_MOD_UNDO "qof-undo"
 
 /** \brief Set a value in this parameter of the entity.

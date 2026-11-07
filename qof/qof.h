@@ -75,8 +75,6 @@
 #include "kvpframe.h"
 #include "kvputil.h"
 #include "qofbackend.h"
-#include "qofid-p.h"
-#include "qofinstance-p.h"
 #include "qofbook.h"
 #include "qofclass.h"
 #include "qofevent.h"

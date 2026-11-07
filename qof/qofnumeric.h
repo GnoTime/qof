@@ -49,6 +49,8 @@ See \ref qofnumericexample
 #ifndef QOF_NUMERIC_H
 #define QOF_NUMERIC_H
 
+#include <glib.h>
+
 struct _QofNumeric
 {
 	gint64 num;

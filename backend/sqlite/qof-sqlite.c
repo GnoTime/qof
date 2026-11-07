@@ -30,6 +30,8 @@
 #include <glib.h>
 #include <libintl.h>
 #include "qof.h"
+#include "qofbackend-p.h"
+#include "qofid-p.h"
 #include "qofsql-p.h"
 #include "qof-sqlite.h"
 #include "kvputil-p.h"

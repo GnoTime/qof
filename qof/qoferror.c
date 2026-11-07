@@ -23,6 +23,7 @@
 
 #include "config.h"
 #include "qof.h"
+#include "qofbackend-p.h"
 #include "qoferror-p.h"
 #include "qofsession-p.h"
 
