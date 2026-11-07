@@ -35,8 +35,8 @@
 #include <stddef.h>
 #include "qoflog.h"
 #include "qofdate.h"
-#include "qofbackend-p.h"
 #include "qofbook.h"
+#include "qofclass.h"
 #include "qofinstance.h"
 
 #define QOF_MOD_UTIL "qof-utilities"

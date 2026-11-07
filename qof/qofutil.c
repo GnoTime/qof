@@ -34,6 +34,7 @@
 #include <string.h>
 #include <math.h>
 #include "qof.h"
+#include "qofbackend-p.h"
 #include "qofundo-p.h"
 #include "qofbook-p.h"
 
