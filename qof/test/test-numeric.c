@@ -29,7 +29,6 @@
 #include <glib.h>
 #include "qof.h"
 #include "test-stuff.h"
-#include "test-engine-stuff.h"
 #include "qofnumeric.h"
 
 #define NREPS 2000

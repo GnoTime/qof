@@ -48,3 +48,5 @@ libqof = library('libqof',
 )
 
 libqof_inc = include_directories('.')
+
+subdir('test')
