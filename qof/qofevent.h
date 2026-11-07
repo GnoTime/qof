@@ -34,7 +34,7 @@
 #ifndef QOF_EVENT_H
 #define QOF_EVENT_H
 
-#include "qof.h"
+#include "qofid.h"
 
 /** Define the type of events allowed. */
 typedef gint QofEventId;
