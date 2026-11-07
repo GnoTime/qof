@@ -30,6 +30,7 @@
 #include <libxml/xmlschemas.h>
 #include "qof.h"
 #include "qof-backend-qsf.h"
+#include "qofid-p.h"
 #include "qsf-xml.h"
 
 static QofLogModule log_module = QOF_MOD_QSF;

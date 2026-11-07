@@ -39,6 +39,7 @@
 #include "sql_parser.h"
 #include <time.h>
 #include "qof.h"
+#include "qofinstance-p.h"
 #include "qofsql-p.h"
 #include "qofquery-p.h"
 

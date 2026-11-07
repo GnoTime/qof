@@ -25,6 +25,8 @@
 #include "config.h"
 #include <glib.h>
 #include "qof.h"
+#include "qofid-p.h"
+#include "qofinstance-p.h"
 
 static QofLogModule log_module = QOF_MOD_MERGE;
 
