@@ -26,7 +26,6 @@
 #include <glib.h>
 #include "qof.h"
 #include "test-stuff.h"
-#include "test-engine-stuff.h"
 #include "qofbook.h"
 #include "qofid.h"
 #include "qofid-p.h"
