@@ -88,6 +88,9 @@
 */
 
 #include "config.h"
+
+#include <glib.h>
+
 #include <time.h>
 
 /** log module name */
