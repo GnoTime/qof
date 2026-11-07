@@ -39,7 +39,7 @@
 #ifndef QOF_BOOK_H
 #define QOF_BOOK_H
 
-#include "qof.h"
+#include "qofid.h"
 
 /** @brief Encapsulates all the information about a dataset
  * manipulated by QOF.  This is the top-most structure
